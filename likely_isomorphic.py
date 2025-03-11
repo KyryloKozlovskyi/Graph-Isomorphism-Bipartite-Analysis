@@ -5,10 +5,12 @@ def getNumberOfVertices(graph):
     # Return the number of vertices by getting the length of the first element of the graph
     return len(graph[0])
 
+
 # Function to get the number of edges in a graph
 def getNumberOfEdges(graph):
     # Return the number of edges by getting the length of the second element of the graph
     return len(graph[1])
+
 
 # Function to get the degree of each vertex in a graph
 def getDegree(V, E):
@@ -24,10 +26,12 @@ def getDegree(V, E):
     # Return the dictionary with the degree (a number of times a vertex appears in edges)
     return counts
 
+
 # Function to get the degree sequence of a graph
 def getDegreeSequence(D):
     # Return the degree sequence by sorting the values of the degree dictionary in descending order
     return sorted(D.values(), reverse=True)
+
 
 # Function to get the Adjacency List of a graph
 def getAdjacencyList(V, E):
@@ -41,6 +45,7 @@ def getAdjacencyList(V, E):
         adjacency_list[v2].add(v1)
     # Return the adjacency list
     return adjacency_list
+
 
 # Function to get the degree sequence of a graph
 def getAdjacentDegrees(V, E):
@@ -57,6 +62,7 @@ def getAdjacentDegrees(V, E):
     # Return the dictionary with the adjacent degrees
     return adjacent_degrees
 
+
 # Function to convert a dictionary to a list of lists
 def dictToList(degree_dict):
     # Extract the values (lists) from the dictionary
@@ -66,10 +72,11 @@ def dictToList(degree_dict):
     # Return the ordered list
     return ordered_list
 
+
 # Function to check if two graphs are isomorphic
 def areGraphsIsomorphic(G1, G2):
     # Get the number of vertices for both graphs
-    v1= getNumberOfVertices(G1)
+    v1 = getNumberOfVertices(G1)
     v2 = getNumberOfVertices(G2)
     # Get the number of edges for both graphs
     e1 = getNumberOfEdges(G1)
@@ -102,24 +109,25 @@ def areGraphsIsomorphic(G1, G2):
     if v1 != v2:
         print("(a) Failed: Different number of vertices")
         return False
-    
+
     # Check for equal number of edges
     if e1 != e2:
         print("(b) Failed: Different number of edges")
         return False
-    
+
     # Check for the same degree sequences
     if ds1 != ds2:
         print("(c) Failed: Different degree sequences")
         return False
-    
+
     # Check for the same sorted list of lists of degrees of adjacent vertices
     if o_ad1 != o_ad2:
         print("(d) Failed: Different ordered lists of adjacent degrees")
         return False
-    
+
     # All criteria passed
     return True
+
 
 # 1. Pair satisfying criteria a and b, but failing on criteria c
 # Graph 1
@@ -127,7 +135,7 @@ V_test1a = ["a", "b", "c", "d", "e"]
 E_test1a = [{"a", "b"}, {"b", "c"}, {"c", "d"}, {"d", "e"}, {"e", "a"}]
 # Graph 2
 V_test1b = ["v", "w", "x", "y", "z"]
-E_test1b = [{"v", "w"}, {"v", "x"}, {"v", "y"}, {"v", "z"}, {"w", "x"}] 
+E_test1b = [{"v", "w"}, {"v", "x"}, {"v", "y"}, {"v", "z"}, {"w", "x"}]
 # Create the graphs
 G_test1a = (V_test1a, E_test1a)
 G_test1b = (V_test1b, E_test1b)
@@ -135,10 +143,12 @@ G_test1b = (V_test1b, E_test1b)
 # 2. Pair satisfying criteria a, b, and c but not isomorphic
 # Graph 1
 V_test2a = ["a", "b", "c", "d", "e", "f"]
-E_test2a = [{"a", "b"}, {"a", "c"}, {"a", "f"}, {"b", "c"}, {"b", "d"},{"b","f"},{"c","d"},{"d","e"},{"d","f"},{"e","f"}]
+E_test2a = [{"a", "b"}, {"a", "c"}, {"a", "f"}, {"b", "c"}, {"b", "d"}, {"b", "f"}, {"c", "d"}, {"d", "e"}, {"d", "f"},
+            {"e", "f"}]
 # Graph 2
 V_test2b = ["g", "h", "k", "m", "n", "p"]
-E_test2b = [{"g", "h"}, {"g", "m"}, {"g", "p"}, {"h", "k"}, {"h", "m"},{"h","p"},{"k","p"},{"k","m"},{"m","n"},{"n","p"}]
+E_test2b = [{"g", "h"}, {"g", "m"}, {"g", "p"}, {"h", "k"}, {"h", "m"}, {"h", "p"}, {"k", "p"}, {"k", "m"}, {"m", "n"},
+            {"n", "p"}]
 # Create the graphs
 G_test2a = (V_test2a, E_test2a)
 G_test2b = (V_test2b, E_test2b)
@@ -157,10 +167,12 @@ G_test3b = (V_test3b, E_test3b)
 # 4. Pair that passes all criteria (isomorphic)
 # Graph 1
 V_test4a = ["a", "b", "c", "d", "e", "f"]
-E_test4a = [{"a", "b"}, {"a", "c"}, {"a", "f"}, {"b", "c"}, {"b", "d"}, {"b", "f"}, {"c", "d"}, {"d", "e"}, {"d", "f"}, {"e", "f"}]
+E_test4a = [{"a", "b"}, {"a", "c"}, {"a", "f"}, {"b", "c"}, {"b", "d"}, {"b", "f"}, {"c", "d"}, {"d", "e"}, {"d", "f"},
+            {"e", "f"}]
 # Graph 2
 V_test4b = ["g", "h", "k", "m", "n", "p"]
-E_test4b = [{"g", "h"}, {"g", "k"}, {"g", "p"}, {"h", "k"}, {"h", "m"}, {"h", "p"}, {"k", "m"}, {"m", "n"}, {"m", "p"}, {"n", "p"}]
+E_test4b = [{"g", "h"}, {"g", "k"}, {"g", "p"}, {"h", "k"}, {"h", "m"}, {"h", "p"}, {"k", "m"}, {"m", "n"}, {"m", "p"},
+            {"n", "p"}]
 # Create the graphs
 G_test4a = (V_test4a, E_test4a)
 G_test4b = (V_test4b, E_test4b)
@@ -168,7 +180,7 @@ G_test4b = (V_test4b, E_test4b)
 # 5. Pair that passes all criteria (isomorphic)
 # Graph 1
 V_test5a = ["a", "b", "c", "d"]
-E_test5a = [{"a", "b"}, {"b", "c"}, {"c", "d"}, {"d", "a"}] 
+E_test5a = [{"a", "b"}, {"b", "c"}, {"c", "d"}, {"d", "a"}]
 # Graph 2
 V_test5b = ["w", "x", "y", "z"]
 E_test5b = [{"w", "x"}, {"x", "y"}, {"y", "z"}, {"z", "w"}]
@@ -176,7 +188,8 @@ E_test5b = [{"w", "x"}, {"x", "y"}, {"y", "z"}, {"z", "w"}]
 G_test5a = (V_test5a, E_test5a)
 G_test5b = (V_test5b, E_test5b)
 
-# Function to test the graphs 
+
+# Function to test the graphs
 def testGraphs():
     print("\n\n=============================== TEST CASES ================================")
     print("1. Pair satisfying criteria a and b, but failing on criteria c:")
@@ -194,6 +207,7 @@ def testGraphs():
     print("5. Pair 2 that passes all criteria (isomorphic):")
     print("Are G5a and G5b isomorphic?", areGraphsIsomorphic(G_test5a, G_test5b))
     print("===========================================================================")
+
 
 # Run the tests
 testGraphs()
