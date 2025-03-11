@@ -1,4 +1,5 @@
 # Kyrylo Kozlovskyi G00425385
+# https://github.com/KyryloKozlovskyi/Graph-Isomorphism-Bipartite-Analysis
 # Function to get the number of vertices in a graph
 def getNumberOfVertices(graph):
     # Return the number of vertices by getting the length of the first element of the graph
